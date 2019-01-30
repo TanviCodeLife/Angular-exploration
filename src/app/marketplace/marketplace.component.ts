@@ -13,15 +13,20 @@ import { FirebaseListObservable } from 'angularfire2/database';
 export class MarketplaceComponent implements OnInit {
   albums: FirebaseListObservable<any[]>;
   currentRoute: string = this.router.url;
+  sortByProperty: string = "PriceAscending";
+
 
   constructor(private router: Router, private albumService: AlbumService) { }
 
   ngOnInit() {
     this.albums = this.albumService.getAlbums();
-    console.log(this.router.url);
   }
 
   goToDetailPage(clickedAlbum) {
     this.router.navigate(['albums', clickedAlbum.$key]);
   };
+
+  onChange(optionFromMenu: string) {
+    this.sortByProperty = optionFromMenu;
+  }
 }
