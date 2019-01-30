@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { MarketplaceComponent }   from './marketplace/marketplace.component';
 import { AlbumDetailComponent }   from './album-detail/album-detail.component';
+import { AdminComponent }   from './admin/admin.component';
 
 const appRoutes: Routes = [ {
     path: '',
@@ -13,9 +14,13 @@ const appRoutes: Routes = [ {
     component: MarketplaceComponent
   },
   {
+  path: 'admin',
+  component: AdminComponent
+  },
+  {
   path: 'albums/:id',
   component: AlbumDetailComponent
-}
+  }
 
  ];
 
