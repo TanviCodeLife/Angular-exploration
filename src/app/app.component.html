@@ -6,11 +6,18 @@
 
 <div class="container-fluid">
   <div class="nav-div">
-  <ul class="nav-custom">
-    <li><a routerLink="marketplace">Marketplace</a></li>
-    <li><a class="text-muted" routerLink="admin">Admin</a></li>
-  </ul>
-</div>
+    <ul class="nav-custom">
+      <li><a routerLink="marketplace">Marketplace</a></li>
+      <li><a class="text-muted" routerLink="admin">Admin</a></li>
+      <li *ngIf="isLoggedIn">
+        <a>{{userName}}</a>
+        <a (click)="logout()">Log out</a>
+      </li>
+      <li *ngIf ="!isLoggedIn">
+        <a (click)="login()">Log in</a>
+      </li>
+    </ul>
+  </div>
   <h1>{{title}}</h1>
   <router-outlet></router-outlet>
 </div>
